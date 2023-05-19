@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.NamedQuery;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@NamedQuery(name = "searchByISBN", query = "SELECT pc FROM PubblicazioniCartacee pc WHERE pc.ISBN = :ISBN")
+@NamedQuery(name = "searchByYear", query = "SELECT pc FROM PubblicazioniCartacee pc WHERE pc.annoPubblicazione = :annoPubblicazione")
+@NamedQuery(name = "searchByTitle", query = "SELECT pc FROM PubblicazioniCartacee pc WHERE pc.titolo LIKE %titolo%")
 public abstract class PubblicazioniCartacee {
 
 	@Id

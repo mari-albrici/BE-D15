@@ -19,5 +19,6 @@ public class PrestitoDAO {
 		transaction.begin();
 		em.persist(p);
 		transaction.commit(); 
+		System.out.println("Prestito salvato!");
 	}
 }

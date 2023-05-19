@@ -19,5 +19,6 @@ public class UtenteDAO {
 		transaction.begin();
 		em.persist(u);
 		transaction.commit(); 
+		System.out.println("Utente salvato!");
 	}
 }

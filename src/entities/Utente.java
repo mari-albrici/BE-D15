@@ -21,7 +21,7 @@ import lombok.Setter;
 public class Utente {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue
 	private UUID tessera;
 	
 	private String nome;

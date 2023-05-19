@@ -59,32 +59,52 @@ public class Archivio {
 		
 		//********** CREAZIONE PRESTITI **********
 		
-		Prestito prestito1 = new Prestito(utente1, rivista2, LocalDate.now(), LocalDate.of(2023, 06, 01));
-		Prestito prestito2 = new Prestito(utente1, libro2, LocalDate.of(2023, 03, 01), LocalDate.of(2023, 03, 27));
-		Prestito prestito3 = new Prestito(utente3, libro5, LocalDate.of(2023, 01, 07), LocalDate.of(2023, 02, 12));
+		Prestito prestito1 = new Prestito(utente1, rivista2, LocalDate.now(), LocalDate.now(), LocalDate.of(2023, 06, 01));
+		Prestito prestito2 = new Prestito(utente1, libro2, LocalDate.of(2023, 03, 01), LocalDate.of(2023, 03, 01), LocalDate.of(2023, 03, 27));
+		Prestito prestito3 = new Prestito(utente3, libro5, LocalDate.of(2023, 01, 07), LocalDate.of(2023, 01, 07), LocalDate.of(2023, 02, 12));
 		
 		
 		// ********** SALVATAGGIO A DATABASE **********
 		
-		pcd.save(libro1);
-		pcd.save(libro2);
-		pcd.save(libro3);
-		pcd.save(libro4);
-		pcd.save(libro5);
+//		pcd.save(libro1);
+//		pcd.save(libro2);
+//		pcd.save(libro3);
+//		pcd.save(libro4);
+//		pcd.save(libro5);
+//		
+//		pcd.save(rivista1);
+//		pcd.save(rivista2);
+//		pcd.save(rivista3);
+//		pcd.save(rivista4);
+//		pcd.save(rivista5);
 		
-		pcd.save(rivista1);
-		pcd.save(rivista2);
-		pcd.save(rivista3);
-		pcd.save(rivista4);
-		pcd.save(rivista5);
+//		ud.save(utente1);
+//		ud.save(utente2);
+//		ud.save(utente3);
+//		
+//		pd.save(prestito1);
+//		pd.save(prestito2);
+//		pd.save(prestito3);
 		
-		ud.save(utente1);
-		ud.save(utente2);
-		ud.save(utente3);
+		// ********** ELIMINAZIONA DA DATABASE PER ISBN **********
 		
-		pd.save(prestito1);
-		pd.save(prestito2);
-		pd.save(prestito3);
+//		pcd.removeFromISBN(4);
 		
+		// ********** RICERCA PER ISBN **********
+		
+		
+		
+		// ********** RICERCA PER AUTORE **********
+		
+		// ********** RICERCA PER ANNO PUBBLICAZIONE **********
+		
+		// ********** RICERCA PER TITOLO **********
+		
+		// ********** Ricerca degli elementi attualmente in prestito dato un numero di tessera utente **********
+		
+		// ********** Ricerca di tutti i prestiti scaduti e non ancora restituiti **********
+		
+		em.close();
+		emf.close();
 	}
 }
