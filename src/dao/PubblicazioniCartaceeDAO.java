@@ -1,10 +1,13 @@
 package dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import entities.PubblicazioniCartacee;
+import entities.Libro;
 
 public class PubblicazioniCartaceeDAO {
 
@@ -36,16 +39,25 @@ public class PubblicazioniCartaceeDAO {
 	
 	public PubblicazioniCartacee searchByISBN(long ISBN){
 		TypedQuery<PubblicazioniCartacee> query = em.createNamedQuery("searchByISBN", PubblicazioniCartacee.class);
+		query.setParameter("ISBN", ISBN);
 		return query.getSingleResult();
 	}
 	
-	public PubblicazioniCartacee searchByYear(int annoPubblicazione) {
+	public List<PubblicazioniCartacee> searchByYear(int annoPubblicazione) {
 		TypedQuery<PubblicazioniCartacee> query = em.createNamedQuery("searchByYear", PubblicazioniCartacee.class);
-		return query.getSingleResult();
+		query.setParameter("annoPubblicazione", annoPubblicazione);
+		return query.getResultList();
 	}
 	
 	public PubblicazioniCartacee searchByTitle(String titolo) {
 		TypedQuery<PubblicazioniCartacee> query = em.createNamedQuery("searchByTitle", PubblicazioniCartacee.class);
+		query.setParameter("titolo", titolo);
 		return query.getSingleResult();
+	}
+	
+	public List<Libro> searchByAuthor(String autore) {
+		TypedQuery<Libro> query = em.createNamedQuery("searchByAuthor", Libro.class);
+		query.setParameter("autore", autore);
+		return query.getResultList();
 	}
 }

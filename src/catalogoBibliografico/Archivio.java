@@ -92,13 +92,19 @@ public class Archivio {
 		
 		// ********** RICERCA PER ISBN **********
 		
-		
+		logger.info("Il libro cercato è: " + pcd.searchByISBN(13).toString());
 		
 		// ********** RICERCA PER AUTORE **********
 		
+		logger.info("Il libro cercato è: " + pcd.searchByAuthor("Piergiorgio Odifreddi").toString());
+		
 		// ********** RICERCA PER ANNO PUBBLICAZIONE **********
 		
+		logger.info("Il libro cercato è: " + pcd.searchByYear(2023).toString());
+		
 		// ********** RICERCA PER TITOLO **********
+		
+		logger.info("Il libro cercato è: " + pcd.searchByTitle("montagne").toString());
 		
 		// ********** Ricerca degli elementi attualmente in prestito dato un numero di tessera utente **********
 		

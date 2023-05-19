@@ -18,7 +18,7 @@ import lombok.Setter;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @NamedQuery(name = "searchByISBN", query = "SELECT pc FROM PubblicazioniCartacee pc WHERE pc.ISBN = :ISBN")
 @NamedQuery(name = "searchByYear", query = "SELECT pc FROM PubblicazioniCartacee pc WHERE pc.annoPubblicazione = :annoPubblicazione")
-@NamedQuery(name = "searchByTitle", query = "SELECT pc FROM PubblicazioniCartacee pc WHERE pc.titolo LIKE %titolo%")
+@NamedQuery(name = "searchByTitle", query = "SELECT pc FROM PubblicazioniCartacee pc WHERE pc.titolo LIKE CONCAT('%', :titolo, '%')")
 public abstract class PubblicazioniCartacee {
 
 	@Id

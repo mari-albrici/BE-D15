@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -12,6 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@NamedQuery(name = "searchByAuthor", query = "SELECT l FROM Libro l WHERE l.autore = :autore")
 public class Libro extends PubblicazioniCartacee{
 	
 	private String autore;
