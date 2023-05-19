@@ -95,23 +95,23 @@ public class Archivio {
 		
 		// ********** RICERCA PER ISBN **********
 		
-		logger.info("Il libro cercato è: " + pcd.searchByISBN(18).toString());
+		logger.info("Il libro cercato per ISBN è: " + pcd.searchByISBN(18).toString());
 		
 		// ********** RICERCA PER AUTORE **********
 		
-		logger.info("Il libro cercato è: " + pcd.searchByAuthor("Piergiorgio Odifreddi").toString());
+		logger.info("Il libro cercato per AUTORE è: " + pcd.searchByAuthor("Piergiorgio Odifreddi").toString());
 		
 		// ********** RICERCA PER ANNO PUBBLICAZIONE **********
 		
-		logger.info("Il libro cercato è: " + pcd.searchByYear(2023).toString());
+		logger.info("Il libro cercato per ANNO è: " + pcd.searchByYear(2023).toString());
 		
 		// ********** RICERCA PER TITOLO **********
 		
-		logger.info("Il libro cercato è: " + pcd.searchByTitle("montagne").toString());
+		logger.info("Il libro cercato per TITOLO è: " + pcd.searchByTitle("montagne").toString());
 		
 		// ********** Ricerca degli elementi attualmente in prestito dato un numero di tessera utente **********
 		
-		logger.info("Il prestito cercato è: " + pd.getActiveByCode("a60bcef0-ad06-47ad-a5c0-21a5dccdea10").toString());
+		logger.info("Il prestito cercato per UTENTE è: " + pd.getActiveByCode("a60bcef0-ad06-47ad-a5c0-21a5dccdea10").toString());
 		
 		// ********** Ricerca di tutti i prestiti scaduti e non ancora restituiti **********
 		
