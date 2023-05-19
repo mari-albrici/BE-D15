@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -19,6 +20,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@NamedQuery(name = "findActiveByCode", query = "SELECT p.elementoPrestato FROM Prestito p JOIN p.utente u WHERE u.tessera = :tessera AND p.dataEffettivaFine IS NULL")
+@NamedQuery(name = "findLateActive", query = "SELECT p.elementoPrestato FROM Prestito p WHERE p.dataPrevistaFine < CURRENT_DATE AND p.dataEffettivaFine IS NULL")
 public class Prestito {
 
 	@Id

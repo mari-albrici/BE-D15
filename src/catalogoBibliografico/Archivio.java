@@ -59,10 +59,11 @@ public class Archivio {
 		
 		//********** CREAZIONE PRESTITI **********
 		
-		Prestito prestito1 = new Prestito(utente1, rivista2, LocalDate.now(), LocalDate.now(), LocalDate.of(2023, 06, 01));
+		Prestito prestito1 = new Prestito(utente1, rivista2, LocalDate.now(), LocalDate.now(), null);
 		Prestito prestito2 = new Prestito(utente1, libro2, LocalDate.of(2023, 03, 01), LocalDate.of(2023, 03, 01), LocalDate.of(2023, 03, 27));
 		Prestito prestito3 = new Prestito(utente3, libro5, LocalDate.of(2023, 01, 07), LocalDate.of(2023, 01, 07), LocalDate.of(2023, 02, 12));
-		
+		Prestito prestito4 = new Prestito(utente1, rivista3, LocalDate.now(), LocalDate.now(), null);
+		Prestito prestito5 = new Prestito(utente2, libro1, LocalDate.of(2022, 10, 12), LocalDate.of(2022, 10, 12), null);
 		
 		// ********** SALVATAGGIO A DATABASE **********
 		
@@ -77,7 +78,7 @@ public class Archivio {
 //		pcd.save(rivista3);
 //		pcd.save(rivista4);
 //		pcd.save(rivista5);
-		
+//		
 //		ud.save(utente1);
 //		ud.save(utente2);
 //		ud.save(utente3);
@@ -85,6 +86,8 @@ public class Archivio {
 //		pd.save(prestito1);
 //		pd.save(prestito2);
 //		pd.save(prestito3);
+//		pd.save(prestito4);
+//		pd.save(prestito5);
 		
 		// ********** ELIMINAZIONA DA DATABASE PER ISBN **********
 		
@@ -92,7 +95,7 @@ public class Archivio {
 		
 		// ********** RICERCA PER ISBN **********
 		
-		logger.info("Il libro cercato è: " + pcd.searchByISBN(13).toString());
+		logger.info("Il libro cercato è: " + pcd.searchByISBN(18).toString());
 		
 		// ********** RICERCA PER AUTORE **********
 		
@@ -108,7 +111,11 @@ public class Archivio {
 		
 		// ********** Ricerca degli elementi attualmente in prestito dato un numero di tessera utente **********
 		
+		logger.info("Il prestito cercato è: " + pd.getActiveByCode("a60bcef0-ad06-47ad-a5c0-21a5dccdea10").toString());
+		
 		// ********** Ricerca di tutti i prestiti scaduti e non ancora restituiti **********
+		
+		logger.info("Il prestito in ritardo è: " + pd.getLateActive().toString());
 		
 		em.close();
 		emf.close();

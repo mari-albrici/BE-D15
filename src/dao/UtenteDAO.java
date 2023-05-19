@@ -2,8 +2,6 @@ package dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-
-import entities.Libro;
 import entities.Utente;
 
 public class UtenteDAO {
