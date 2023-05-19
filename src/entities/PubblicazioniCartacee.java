@@ -1,17 +1,20 @@
 package entities;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@MappedSuperclass
+@Entity
 @NoArgsConstructor
 @Getter
 @Setter
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class PubblicazioniCartacee {
 
 	@Id
@@ -29,21 +32,6 @@ public abstract class PubblicazioniCartacee {
 		this.pagine = pagine;
 	}
 	
-	protected String getTitolo() {
-		return titolo;
-	}
-	
-	protected int getAnnoPubblicazione() {
-		return annoPubblicazione;
-	}
-	
-	protected int getPagine() {
-		return pagine;
-	}
-	
-	protected long getISBN() {
-		return ISBN;
-	}
 	
 	@Override
     public String toString() {

@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -28,11 +27,18 @@ public class Prestito {
 	@ManyToOne
 	private Utente utente;
 	
-	@OneToMany
-	private PubblicazioniCartacee elemento;
+	@ManyToOne
+	private PubblicazioniCartacee elementoPrestato;
 	
 	private LocalDate dataInizioPrestito;
-	private LocalDate dataPrevistaFine;
+	private LocalDate dataPrevistaFine = dataInizioPrestito.plusDays(30);
 	private LocalDate dataEffettivaFine;
+	
+	public Prestito(Utente utente, PubblicazioniCartacee elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataEffettivaFine) {
+		this.utente = utente;
+		this.elementoPrestato = elementoPrestato;
+		this.dataInizioPrestito = dataInizioPrestito;
+		this.dataEffettivaFine = dataEffettivaFine;
+	}
 	
 }

@@ -23,17 +23,6 @@ public class Libro extends PubblicazioniCartacee{
 		this.genere = genere;
 	}
 	
-	public void getInfoLibro() {
-		System.out.println(titolo + " di " + autore + ", genere " + genere + ", pubblicato nel " + annoPubblicazione + ", ha un totale di " + pagine + " pagine (il suo codice ISBN è: " + ISBN + ").");
-	}
-	
-	public String getAutore() {
-		return autore;
-	}
-	
-	public String getGenere() {
-		return genere;
-	}
 	
 	@Override
     public String toString() {
